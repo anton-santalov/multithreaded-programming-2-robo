@@ -33,8 +33,7 @@ public class Main {
         String route = generateRoute("RLRFR", 100);
         long rNumber = route.chars().filter(c -> c == 'R').count();
         synchronized (sizeToFreq) {
-            sizeToFreq.put((int) rNumber,
-                sizeToFreq.get((int) rNumber) != null ? sizeToFreq.get((int) rNumber) + 1 : 1);
+            sizeToFreq.put((int) rNumber, sizeToFreq.getOrDefault((int) rNumber, 0) + 1);
         }
     }
 
