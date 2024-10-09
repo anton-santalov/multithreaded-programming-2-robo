@@ -30,9 +30,9 @@ public class Main {
     }
 
     private static void addRCountToMap() {
+        String route = generateRoute("RLRFR", 100);
+        long rNumber = route.chars().filter(c -> c == 'R').count();
         synchronized (sizeToFreq) {
-            String route = generateRoute("RLRFR", 100);
-            long rNumber = route.chars().filter(c -> c == 'R').count();
             sizeToFreq.put((int) rNumber,
                 sizeToFreq.get((int) rNumber) != null ? sizeToFreq.get((int) rNumber) + 1 : 1);
         }
